@@ -1,6 +1,7 @@
-/* Base created by Log-out
+/*
+ *  Base with comment and header features created by Log-out
  *  https://bukkit.org/threads/tut-custom-yaml-configurations-with-comments.142592/
- *  Updated by Magnum 2020
+ *  Updated by Magnum to auto update config files from resources
  */
 
 package me.magnum.birthdays;
@@ -16,15 +17,21 @@ public class SimpleConfigManager {
 
 	/**
 	 * Manage custom configurations and files
+	 *
+	 * @param plugin instance of plugin to manage for
 	 */
 	public SimpleConfigManager (JavaPlugin plugin) {
 		this.plugin = plugin;
 	}
 
 	/**
-	 * Get new configuration with header
+	 * Get new configuration with header. If (@link useDefaults) is true,
+	 * will check resource folder for defaults. Set (@link useDefaults) false,
+	 * to create a blank file with no default keys.
 	 *
-	 * @param filePath - Path to file
+	 * @param filePath    Path and filename. Include .yml if you want extension.
+	 * @param header      Headers to include at the top of file
+	 * @param useDefaults Should I check resource folder for default file
 	 * @return - New SimpleConfig
 	 */
 	public SimpleConfig getNewConfig (String filePath, String[] header,boolean useDefaults) {
@@ -128,7 +135,7 @@ public class SimpleConfigManager {
 	}
 
 	/**
-	 * Adds header block to config
+	 * Adds nice formatted header block to config
 	 *
 	 * @param file   - Config file
 	 * @param header - Header lines
@@ -387,6 +394,12 @@ public class SimpleConfigManager {
 
 	}
 
+	/**
+	 * Get the name of the plugin this instance of {@link SimpleConfigManager} is
+	 * registered to.
+	 *
+	 * @return the plugin name
+	 */
 	public String getPluginName () {
 		return plugin.getDescription().getName();
 	}

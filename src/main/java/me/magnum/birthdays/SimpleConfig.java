@@ -97,7 +97,10 @@ public class SimpleConfig  extends YamlConfiguration  {
 
 	/**
 	 * Gets an unspecified value from your file, so you must cast it to your desired value (example: (boolean) get("disable.this.feature", true))
-	 * The "def" is the default value, must be null since we use default values from your file in your .jar.
+	 * The (@link def) is the default value, must be null since we use default values from your file in your .jar.
+	 *
+	 * @param path path of key to fetch
+	 * @param def optional default if key is not set
 	 */
 	@Override
 	public Object get(String path, Object def) {
