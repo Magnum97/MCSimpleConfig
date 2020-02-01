@@ -70,7 +70,7 @@ public class SimpleConfigManager {
 	 * @param file - File path
 	 * @return - New file object
 	 */
-	private File getConfigFile (String file) {
+	 File getConfigFile (String file) {
 
 		if (file == null || file.isEmpty()) {
 			return null;
@@ -102,7 +102,7 @@ public class SimpleConfigManager {
 	 * @param filePath - Path to file
 	 * @param resource - Resource to copy
 	 */
-	public void prepareFile (String filePath, String resource) {
+	 void prepareFile (String filePath, String resource) {
 
 		File file = this.getConfigFile(filePath);
 
@@ -130,7 +130,7 @@ public class SimpleConfigManager {
 	 *
 	 * @param filePath - File to create
 	 */
-	public void prepareFile (String filePath) {
+	 void prepareFile (String filePath) {
 		this.prepareFile(filePath, null);
 	}
 
@@ -140,7 +140,7 @@ public class SimpleConfigManager {
 	 * @param file   - Config file
 	 * @param header - Header lines
 	 */
-	public void setHeader (File file, String[] header) {
+	void setHeader (File file, String[] header) {
 
 		if (! file.exists()) {
 			return;
@@ -202,7 +202,7 @@ public class SimpleConfigManager {
 	 * @param file - Path to file
 	 * @return - File as Input Stream
 	 */
-	public InputStreamReader getConfigContent (File file) {
+	 InputStreamReader getConfigContent (File file) {
 
 		if (! file.exists()) {
 			return null;
@@ -253,7 +253,7 @@ public class SimpleConfigManager {
 	 * @param file - File
 	 * @return - Comments number
 	 */
-	private int getCommentsNum (File file) {
+	 int getCommentsNum (File file) {
 
 		if (! file.exists()) {
 			return 0;
@@ -290,12 +290,12 @@ public class SimpleConfigManager {
 	 * @param filePath - Path to file
 	 * @return - readied file
 	 */
-	public InputStreamReader getConfigContent (String filePath) {
+	 InputStreamReader getConfigContent (String filePath) {
 		return this.getConfigContent(this.getConfigFile(filePath));
 	}
 
 
-	private String prepareConfigString (String configString) {
+	 String prepareConfigString (String configString) {
 
 		int lastLine = 0;
 		int headerLine = 0;
@@ -378,7 +378,7 @@ public class SimpleConfigManager {
 	 * @param configString - Config string
 	 * @param file         - Config file
 	 */
-	public void saveConfig (String configString, File file) {
+	 void saveConfig (String configString, File file) {
 		String configuration = this.prepareConfigString(configString);
 
 		try {
