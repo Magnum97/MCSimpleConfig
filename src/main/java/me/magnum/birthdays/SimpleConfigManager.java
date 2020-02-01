@@ -27,7 +27,7 @@ public class SimpleConfigManager {
 	 * @param filePath - Path to file
 	 * @return - New SimpleConfig
 	 */
-	public SimpleConfig getNewConfig (String filePath, String[] header) {
+	public SimpleConfig getNewConfig (String filePath, String[] header,boolean useDefaults) {
 
 		File file = this.getConfigFile(filePath);
 
@@ -40,19 +40,21 @@ public class SimpleConfigManager {
 
 		}
 
-		SimpleConfig config = new SimpleConfig(this.getConfigContent(filePath), file, this.getCommentsNum(file), plugin);
+		SimpleConfig config = new SimpleConfig(this.getConfigContent(filePath), file, this.getCommentsNum(file), useDefaults,plugin);
 		return config;
 
 	}
 
 	/**
-	 * Get new configuration
+	 * Get new configuration.
+	 * <p>It will be blank unless (@link useDefaults) is true
+	 * <b>and</b> include it in resources.</p>
 	 *
 	 * @param filePath - Path to file
 	 * @return - New SimpleConfig
 	 */
 	public SimpleConfig getNewConfig (String filePath) {
-		return this.getNewConfig(filePath, null);
+		return this.getNewConfig(filePath, null,false);
 	}
 
 	/**
