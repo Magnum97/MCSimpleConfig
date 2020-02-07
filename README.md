@@ -4,17 +4,17 @@ ___
 #### Credits:  
 First things first. I want to thank [Log-out](https://bukkit.org/members/log-out.90690580/) for providing the base of this project. And to [kangarko](https://www.spigotmc.org/members/kangarko.3321/) for helping me learn Java and SpigotAPI.
 
-###About this project:
+### About this project:
 I spent some time scouring the internet looking for help to make such a project before I finally came [this project](https://bukkit.org/threads/tut-custom-yaml-configurations-with-comments.142592/). 
 It was designed for use with the [Bukkkit](https://bukkit.org/pages/about-us/) API for [Minecraft](http://www.minecraft.net), or it derivatives such as [Spigot](https://www.spigotmc.org/wiki/about-spigot/) and [Paper](https://papermc.io/). By the time I found it some things had broken. I have tuned it up and brought it back to life, as well as added an auto-update feature. If you try to read a value that is not in the config, but is stored in the resource the config file will automatically update with the default value.
 
-##Features:
+## Features:
 Create and manage YAML files with:
 * Nicely formatted headers
 * Comments added above top-level keys
 * Comments that are preserved on save 
 
-#####Example usage:
+##### Example usage:
 
 ```java
 import org.bukkit.plugin.java.JavaPlugin;
