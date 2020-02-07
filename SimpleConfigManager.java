@@ -25,16 +25,28 @@ public class SimpleConfigManager {
 	}
 
 	/**
-	 * Get new configuration with header. If (@link useDefaults) is true,
-	 * will check resource folder for defaults. Set (@link useDefaults) false,
-	 * to create a blank file with no default keys.
+	 * Get a new config file with no headers.
 	 *
-	 * @param filePath    Path and filename. Include .yml if you want extension.
-	 * @param header      Headers to include at the top of file
-	 * @param useDefaults Should I check resource folder for default file
+	 * @param filePath    Path to file
+	 * @param useDefaults true will use defaults from resource
 	 * @return - New SimpleConfig
 	 */
-	public SimpleConfig getNewConfig (String filePath, String[] header,boolean useDefaults) {
+	public SimpleConfig getNewConfig (String filePath, boolean useDefaults) {
+		return this.getNewConfig(filePath, useDefaults, null);
+	}
+
+	/**
+	 * Get new configuration with header.
+	 * <p>It will be blank unless <b>useDefaults</b> is true
+	 * <i>and</i> include it in resources.</p>
+	 *
+	 * @param filePath    Path and filename
+	 * @param useDefaults True will check for default resource.
+	 *                    False for blank/custom a config file.
+	 * @param header      String array to use as a header. Can be null
+	 * @return SimpleConfig
+	 */
+	public SimpleConfig getNewConfig (String filePath, boolean useDefaults, String[] header) {
 
 		File file = this.getConfigFile(filePath);
 
@@ -47,21 +59,9 @@ public class SimpleConfigManager {
 
 		}
 
-		SimpleConfig config = new SimpleConfig(this.getConfigContent(filePath), file, this.getCommentsNum(file), useDefaults,plugin);
+		SimpleConfig config = new SimpleConfig(this.getConfigContent(filePath), file, this.getCommentsNum(file), useDefaults, plugin);
 		return config;
 
-	}
-
-	/**
-	 * Get new configuration.
-	 * <p>It will be blank unless (@link useDefaults) is true
-	 * <b>and</b> include it in resources.</p>
-	 *
-	 * @param filePath - Path to file
-	 * @return - New SimpleConfig
-	 */
-	public SimpleConfig getNewConfig (String filePath) {
-		return this.getNewConfig(filePath, null,false);
 	}
 
 	/**
